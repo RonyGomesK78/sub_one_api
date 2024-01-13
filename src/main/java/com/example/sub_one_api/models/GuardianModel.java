@@ -40,12 +40,16 @@ public class GuardianModel implements Serializable{
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
 
+  public GuardianModel() {
+  }
+
   public GuardianModel(String name, Long phoneNumber, String countryCode, String email ) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.countryCode = countryCode;
     this.email = email;
-  }  
+  }
+  
   public UUID getId() {
     return id;
   }  
