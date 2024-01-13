@@ -1,5 +1,7 @@
 package com.example.sub_one_api.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,9 @@ public class PlayerService {
   @Transactional
   public PlayerModel save(PlayerModel playerModel) {
     return playerRepository.save(playerModel);
+  }
+
+  public List<PlayerModel> getAllPlayers() {
+    return playerRepository.findAll();
   }
 }

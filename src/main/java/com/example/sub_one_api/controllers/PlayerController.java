@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,22 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+
 
 @RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/players")
 public class PlayerController {
 
 	@Autowired
 	private PlayerService playerService;
 	
-	@CrossOrigin(origins = "*")
-	@PostMapping("/api/players")
+	@PostMapping
 	public ResponseEntity<PlayerModel> createPlayer(@RequestBody @Valid() PlayerRecordDto playerRecordDto) {
 
 		var playerModel = new PlayerModel();
@@ -54,4 +62,11 @@ public class PlayerController {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(playerCreated);
 	}
+
+	@GetMapping
+	public ResponseEntity<List<PlayerModel>> getPlayers() {
+		var players = playerService.getAllPlayers();
+		return ResponseEntity.status(HttpStatus.OK).body(players);
+	}
+	
 }
