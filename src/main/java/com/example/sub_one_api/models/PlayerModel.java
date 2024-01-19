@@ -51,6 +51,13 @@ public class PlayerModel implements Serializable {
       inverseJoinColumns = @JoinColumn(name = "position_id"))
     private Set<FootballPositionModel> football_positions;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+      name = "players_categories",
+      joinColumns = @JoinColumn(name = "player_id"),
+      inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<FootballCategoryModel> football_categories;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

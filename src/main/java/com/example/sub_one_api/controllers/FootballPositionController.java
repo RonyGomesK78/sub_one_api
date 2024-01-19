@@ -23,7 +23,7 @@ public class FootballPositionController {
 
   @GetMapping
   public ResponseEntity<List<FootballPositionModel>> getPositions() {
-    var football_positions = footballPositionService.getAllFootballPositions();
-    return ResponseEntity.status(HttpStatus.OK).body(football_positions);
+    var footballPositions = footballPositionService.getAllFootballPositions();
+    return ResponseEntity.status(HttpStatus.OK).body(footballPositions);
   }
 }
