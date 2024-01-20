@@ -1,6 +1,7 @@
 package com.example.sub_one_api.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,9 @@ public class FootballPositionService {
 
   public List<FootballPositionModel> getAllFootballPositions() {
     return footballPositionRepository.findAll();
+  }
+
+  public Optional<FootballPositionModel> getFootballPositionById(String positionId) {
+    return footballPositionRepository.findById(positionId);
   }
 }
