@@ -21,6 +21,11 @@ public class FootballPositionModel implements Serializable {
   private Set<PlayerModel> players;
 
   public FootballPositionModel() {}
+
+  public FootballPositionModel(String id) {
+    this.id = id;
+  }
+
   public FootballPositionModel(String id, String name) {
     this.id = id;
     this.name = name;

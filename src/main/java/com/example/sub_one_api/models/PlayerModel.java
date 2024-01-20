@@ -137,4 +137,20 @@ public class PlayerModel implements Serializable {
     public void setGuardians(Set<GuardianModel> guards) {
       this.guardians = guards;
     }
+
+    public Set<FootballPositionModel> getPositions() {
+      return football_positions;
+    }
+
+    public void setPositons(Set<FootballPositionModel> positions) {
+      this.football_positions = positions;
+    }
+
+    public Set<FootballCategoryModel> getCategories() {
+      return football_categories;
+    }
+
+    public void setCategories(Set<FootballCategoryModel> categories) {
+      this.football_categories = categories;
+    }
 }
