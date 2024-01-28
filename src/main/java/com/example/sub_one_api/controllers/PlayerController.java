@@ -68,7 +68,7 @@ public class PlayerController {
 			playerModel.setPositons(positionModel);
 		}
 		
-		if (playerRecordDto.category() != null && playerRecordDto.position().trim() != "") {
+		if (playerRecordDto.category() != null && playerRecordDto.category().trim() != "") {
 
 			existingCategory = categoryService.getFootballCategoryById(playerRecordDto.category());
 
