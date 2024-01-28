@@ -38,8 +38,9 @@ public class SeedDataLoader implements CommandLineRunner {
       positionsModel.add(new FootballPositionModel("MD", "Médio Defensivo"));
       positionsModel.add(new FootballPositionModel("MC", "Médio Centro"));
       positionsModel.add(new FootballPositionModel("MC", "Médio Centro"));
+      positionsModel.add(new FootballPositionModel("MO", "Médio Ofensivo"));
       positionsModel.add(new FootballPositionModel("EE", "Extremo Esquerdo"));
-      positionsModel.add(new FootballPositionModel("EE", "Extremo Esquerdo"));
+      positionsModel.add(new FootballPositionModel("ED", "Extremo Direito"));
       positionsModel.add(new FootballPositionModel("A", "Avançado"));
 
       footballPositionRepository.saveAll(positionsModel);
