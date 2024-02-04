@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sub_one_api.dtos.GuardianRecordDto;
 import com.example.sub_one_api.dtos.PlayerRecordDto;
@@ -103,9 +104,21 @@ public class PlayerController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<PlayerModel>> getPlayers() {
-		var players = playerService.getAllPlayers();
-		return ResponseEntity.status(HttpStatus.OK).body(players);
+	public ResponseEntity<List<PlayerModel>> getPlayers(@RequestParam(required = false) String category) {
+		if (category != null && !category.isEmpty()) {
+			var categoryModelOptional = categoryService.getFootballCategoryById(category);
+			if (categoryModelOptional.isPresent()) {
+					var categoryModel = categoryModelOptional.get();
+					var players = playerService.getAllPlayersByCategory(categoryModel);
+					return ResponseEntity.status(HttpStatus.OK).body(players);
+			} else {
+					return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+			}
+		} else {
+			var players = playerService.getAllPlayers();
+			return ResponseEntity.status(HttpStatus.OK).body(players);
+	}
+		
 	}
 	
 }
