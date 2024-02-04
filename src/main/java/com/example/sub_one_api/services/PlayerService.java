@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.sub_one_api.models.FootballCategoryModel;
 import com.example.sub_one_api.models.PlayerModel;
 import com.example.sub_one_api.repositories.PlayerRepository;
 
@@ -23,5 +24,9 @@ public class PlayerService {
 
   public List<PlayerModel> getAllPlayers() {
     return playerRepository.findAll();
+  }
+
+  public List<PlayerModel> getAllPlayersByCategory(FootballCategoryModel category) {
+    return playerRepository.findByCategories(category);
   }
 }

@@ -28,34 +28,26 @@ public class SeedDataLoader implements CommandLineRunner {
   public void run(String... args) {
     // Check if data already exists
     if (footballPositionRepository.count() == 0) {
-      // Insert initial data
-      Set<FootballPositionModel> positionsModel = new HashSet<>();
       
-      positionsModel.add(new FootballPositionModel("GR", "Guarda Redes"));
-      positionsModel.add(new FootballPositionModel("DC", "Defesa Central"));
-      positionsModel.add(new FootballPositionModel("LE", "Lateral Esquerdo"));
-      positionsModel.add(new FootballPositionModel("LD", "Lateral Direito"));
-      positionsModel.add(new FootballPositionModel("MD", "Médio Defensivo"));
-      positionsModel.add(new FootballPositionModel("MC", "Médio Centro"));
-      positionsModel.add(new FootballPositionModel("MC", "Médio Centro"));
-      positionsModel.add(new FootballPositionModel("MO", "Médio Ofensivo"));
-      positionsModel.add(new FootballPositionModel("EE", "Extremo Esquerdo"));
-      positionsModel.add(new FootballPositionModel("ED", "Extremo Direito"));
-      positionsModel.add(new FootballPositionModel("A", "Avançado"));
-
-      footballPositionRepository.saveAll(positionsModel);
+      footballPositionRepository.save(new FootballPositionModel("GR", "Guarda Redes"));
+      footballPositionRepository.save(new FootballPositionModel("DC", "Defesa Central"));
+      footballPositionRepository.save(new FootballPositionModel("LD", "Lateral Direito"));
+      footballPositionRepository.save(new FootballPositionModel("LE", "Lateral Esquerdo"));
+      footballPositionRepository.save(new FootballPositionModel("MD", "Médio Defensivo"));
+      footballPositionRepository.save(new FootballPositionModel("MC", "Médio Centro"));
+      footballPositionRepository.save(new FootballPositionModel("MO", "Médio Ofensivo"));
+      footballPositionRepository.save(new FootballPositionModel("EE", "Extremo Esquerdo"));
+      footballPositionRepository.save(new FootballPositionModel("ED", "Extremo Direito"));
+      footballPositionRepository.save(new FootballPositionModel("PL", "Ponta Lança"));
     }
     
     if (footballCategoryRepository.count() == 0) {
-      Set<FootballCategoryModel> categoryModels = new HashSet<>();
 
-      categoryModels.add(new FootballCategoryModel("sub-6", "SUB-6"));
-      categoryModels.add(new FootballCategoryModel("sub-10", "SUB-10"));
-      categoryModels.add(new FootballCategoryModel("sub-13", "SUB-13"));
-      categoryModels.add(new FootballCategoryModel("sub-15", "SUB-15"));
-      categoryModels.add(new FootballCategoryModel("senior-feminino", "Sénior Feminino"));
-
-      footballCategoryRepository.saveAll(categoryModels);
+      footballCategoryRepository.save(new FootballCategoryModel("sub-6", "SUB-6"));
+      footballCategoryRepository.save(new FootballCategoryModel("sub-11", "SUB-11"));
+      footballCategoryRepository.save(new FootballCategoryModel("sub-13", "SUB-13"));
+      footballCategoryRepository.save(new FootballCategoryModel("sub-15", "SUB-15"));
+      footballCategoryRepository.save(new FootballCategoryModel("senior-feminino", "Sénior Feminino"));
     }
   }
 }
