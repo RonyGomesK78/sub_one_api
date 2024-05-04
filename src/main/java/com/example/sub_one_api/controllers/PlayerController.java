@@ -33,7 +33,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/players")
+@RequestMapping("/api/v1/players")
 public class PlayerController {
 
 	@Autowired

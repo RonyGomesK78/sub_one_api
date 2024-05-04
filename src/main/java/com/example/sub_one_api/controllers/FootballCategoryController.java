@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/football_categories")
+@RequestMapping("/api/v1/football_categories")
 public class FootballCategoryController {
   @Autowired
   public FootballCategoryService footballCategoryService;
