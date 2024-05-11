@@ -15,7 +15,7 @@ import com.example.sub_one_api.services.FootballPositionService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/football_positions")
+@RequestMapping("/api/v1/football_positions")
 public class FootballPositionController {
   
   @Autowired
